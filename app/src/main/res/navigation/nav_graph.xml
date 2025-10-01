@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/navigation_dashboard">
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.example.eventplanner.DashboardFragment"
+        android:label="dashboard"
+        tools:layout="@layout/fragment_dashboard" />
+
+    <fragment
+        android:id="@+id/navigation_events"
+        android:name="com.example.eventplanner.EventFragment"
+        android:label="events"
+        tools:layout="@layout/fragment_event" />
+
+    <fragment
+        android:id="@+id/navigation_itinerary"
+        android:name="com.example.eventplanner.ItineraryFragment"
+        android:label="itinerary"
+        tools:layout="@layout/fragment_itinerary" />
+
+    <fragment
+        android:id="@+id/navigation_guests"
+        android:name="com.example.eventplanner.GuestFragment"
+        android:label="guests"
+        tools:layout="@layout/fragment_guest" />
+
+    <fragment
+        android:id="@+id/navigation_budget"
+        android:name="com.example.eventplanner.BudgetFragment"
+        android:label="budget"
+        tools:layout="@layout/fragment_budget" />
+
+    <fragment
+        android:id="@+id/navigation_map"
+        android:name="com.example.eventplanner.MapFragment"
+        android:label="map"
+        tools:layout="@layout/fragment_map" />
+
+    <fragment
+        android:id="@+id/navigation_chat"
+        android:name="com.example.eventplanner.ChatFragment"
+        android:label="ai_assistant"
+        tools:layout="@layout/fragment_chat" />
+
+</navigation>

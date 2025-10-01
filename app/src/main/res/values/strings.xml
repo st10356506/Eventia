@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">EventPlanner</string>
+    <!--dropdown-->
+    <style name="DropdownTextAppearance" parent="TextAppearance.AppCompat.Widget.TextView.SpinnerItem">
+        <item name="android:textColor">#000000</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="BlackTextInputStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">#000000</item> <!-- Outline when active -->
+        <item name="boxStrokeErrorColor">#000000</item>
+        <item name="textFillColor">#000000</item>
+        <item name="hintTextColor">#000000</item> <!-- Hint color -->
+        <item name="android:textColorHint">#000000</item>
+        <item name="cursorColor">#000000</item> <!-- Cursor color -->
+        <item name="endIconTint">#000000</item> <!-- Eye icon color -->
+
+    </style>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="default_web_client_id">809114238557-ih6ih34rcocc73f5ss1m4r4as3sq53ts.apps.googleusercontent.com</string>
+</resources>

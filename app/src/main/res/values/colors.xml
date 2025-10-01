@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Custom EventPlanner Color Scheme -->
+    <color name="primary">#345da7</color>
+    <color name="primary_variant">#3b8ac4</color>
+    <color name="secondary">#4bb4de</color>
+    <color name="accent">#efdbcb</color>
+    
+    <!-- Material Design 3 Colors -->
+    <color name="seed">#345da7</color>
+
+    <!-- Light Theme -->
+    <color name="on_primary">#FFFFFF</color>
+    <color name="primary_container">#E3F2FD</color>
+    <color name="on_primary_container">#345da7</color>
+
+    <color name="on_secondary">#FFFFFF</color>
+    <color name="secondary_container">#E1F5FE</color>
+    <color name="on_secondary_container">#4bb4de</color>
+
+    <color name="tertiary">#efdbcb</color>
+    <color name="on_tertiary">#000000</color>
+    <color name="tertiary_container">#FFF3E0</color>
+    <color name="on_tertiary_container">#efdbcb</color>
+
+    <color name="error">#DC2626</color>
+    <color name="on_error">#FFFFFF</color>
+    <color name="error_container">#FEE2E2</color>
+    <color name="on_error_container">#B91C1C</color>
+
+    <color name="surface">#FFFFFF</color>
+    <color name="on_surface">#111827</color>
+    <color name="surface_variant">#F9FAFB</color>
+    <color name="on_surface_variant">#6B7280</color>
+
+    <color name="background">#FFFFFF</color>
+    <color name="on_background">#111827</color>
+
+    <color name="outline">#D1D5DB</color>
+    <color name="outline_variant">#E5E7EB</color>
+
+    <!-- Additional Colors -->
+    <color name="orange_container">#FFEDD5</color>
+    <color name="on_orange_container">#EA580C</color>
+
+    <!-- Dark Theme -->
+    <color name="primary_dark">#3b8ac4</color>
+    <color name="on_primary_dark">#000000</color>
+    <color name="primary_container_dark">#1E3A8A</color>
+    <color name="on_primary_container_dark">#DBEAFE</color>
+
+    <color name="surface_dark">#111827</color>
+    <color name="on_surface_dark">#F9FAFB</color>
+    <color name="surface_variant_dark">#1F2937</color>
+    <color name="on_surface_variant_dark">#9CA3AF</color>
+
+    <color name="background_dark">#111827</color>
+    <color name="on_background_dark">#F9FAFB</color>
+
+    <color name="outline_dark">#374151</color>
+    <color name="outline_variant_dark">#4B5563</color>
+
+        <color name="black">#FF000000</color>
+        <color name="white">#FFFFFFFF</color>
+        <color name="light_gray">#F5F5F5</color>
+        <color name="dark_green">#2E7D32</color>
+        <color name="red">#F5F5F5</color>
+        <color name="blue">#2E7D32</color>
+        <color name="orange">#F5F5F5</color>
+        <color name="green">#2E7D32</color>
+        <color name="light_blue">#F5F5F5</color>
+        <color name="light_green">#2E7D32</color>
+        <color name="light_orange">#2E7D32</color>
+        <color name="teal_200">#2E7D32</color>
+        <color name="emerald_green">#1E8A5F</color>
+        <color name="forest_green">#0A573A</color>
+        <color name="sage_background">#E6F2EA</color>
+        <color name="primary_light">#4CAF50</color>
+        <color name="primary_text">#212121</color>
+        <color name="secondary_text">#757575</color>
+        <color name="background_color">#F5F5F5</color>
+        <color name="surface_color">#FFFFFF</color>
+        <color name="button_primary">#2E7D32</color>
+        <color name="button_secondary">#455A64</color>
+        <color name="button_danger">#D32F2F</color>
+        <color name="button_success">#388E3C</color>
+        <color name="button_neutral">#EEEEEE</color>
+        <color name="divider">#BDBDBD</color>
+        <color name="stroke_color">#E0E0E0</color>
+        <color name="selector_background">#d3f88e</color>
+    </resources>

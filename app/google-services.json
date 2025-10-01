@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "809114238557",
+    "project_id": "eventiaeventplanner1",
+    "storage_bucket": "eventiaeventplanner1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:809114238557:android:5e5a320430e3e7851857b4",
+        "android_client_info": {
+          "package_name": "com.example.eventplanner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "809114238557-ih6ih34rcocc73f5ss1m4r4as3sq53ts.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBq4jV1SmlKN14XN07FFinWFhiEpGmBfxw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "809114238557-ih6ih34rcocc73f5ss1m4r4as3sq53ts.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

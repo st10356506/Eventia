@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/navigation_dashboard"
+            android:icon="@drawable/ic_home_24"
+            android:title="Dashboard" />
+        <item
+            android:id="@+id/navigation_events"
+            android:icon="@drawable/ic_calendar_24"
+            android:title="Events" />
+        <item
+            android:id="@+id/navigation_itinerary"
+            android:icon="@drawable/ic_schedule_24"
+            android:title="Itinerary" />
+        <item
+            android:id="@+id/navigation_guests"
+            android:icon="@drawable/ic_people_24"
+            android:title="Guests" />
+        <item
+            android:id="@+id/navigation_budget"
+            android:icon="@drawable/ic_attach_money_24"
+            android:title="Budget" />
+        <item
+            android:id="@+id/navigation_map"
+            android:icon="@drawable/ic_place_24"
+            android:title="Map" />
+        <item
+            android:id="@+id/navigation_chat"
+            android:icon="@drawable/ic_chat_24"
+            android:title="AI Assistant" />
+    </group>
+</menu>
