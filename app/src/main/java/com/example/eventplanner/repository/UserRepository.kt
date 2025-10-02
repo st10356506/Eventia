@@ -9,7 +9,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException
 
-class UserRepository(private val api: EventiaApi = RetrofitClient.api) {
+class UserRepository(private val api: EventiaApi = RetrofitClient.eventiaApi) {
 
     suspend fun createUser(userRequest: UserRequest): Result<UserResponse> {
         return withContext(Dispatchers.IO) {

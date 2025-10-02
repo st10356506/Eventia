@@ -1,25 +1,42 @@
 package com.example.eventplanner.network
 
 import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitClient {
-    private const val BASE_URL = "https://api.yourdomain.com" // replace
+    private const val BASE_URL = "https://www.eventbriteapi.com/v3/"
+    private const val EVENTIA_BASE_URL = "https://localhost:5000/"
 
-    private val logging = HttpLoggingInterceptor().apply {
-        level = HttpLoggingInterceptor.Level.BODY
-    }
+    val api: EventbriteApi by lazy {
+        val okHttp = OkHttpClient.Builder()
+            .addInterceptor { chain ->
+                val request = chain.request().newBuilder()
+                    .addHeader("Authorization", "Bearer FV4VSB4Q6NVHU5Z22ZXF")
+                    .build()
+                chain.proceed(request)
+            }.build()
 
-    private val client = OkHttpClient.Builder()
-        .addInterceptor(logging)
-        .build()
-
-    val api: EventiaApi by lazy {
         Retrofit.Builder()
             .baseUrl(BASE_URL)
-            .client(client)
+            .client(okHttp)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(EventbriteApi::class.java)
+    }
+
+    val eventiaApi: EventiaApi by lazy {
+        val okHttp = OkHttpClient.Builder()
+            .addInterceptor { chain ->
+                val request = chain.request().newBuilder()
+                    // Add any authentication headers for Eventia API here if needed
+                    .build()
+                chain.proceed(request)
+            }.build()
+
+        Retrofit.Builder()
+            .baseUrl(EVENTIA_BASE_URL)
+            .client(okHttp)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(EventiaApi::class.java)

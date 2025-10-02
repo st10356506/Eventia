@@ -1,4 +1,4 @@
-package com.example.eventplanner.com.example.eventplanner.models
+package com.example.eventplanner.models
 
 data class User(
     val username: String,

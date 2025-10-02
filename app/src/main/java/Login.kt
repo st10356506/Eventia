@@ -37,7 +37,7 @@ class Login : AppCompatActivity() {
     private val viewModel: UserViewModel by viewModels()
 
     // Retrofit API
-    private val eventiaApi: EventiaApi = RetrofitClient.api
+    private val eventiaApi: EventiaApi = RetrofitClient.eventiaApi
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -117,10 +117,10 @@ class Login : AppCompatActivity() {
                         // Save user data to API
                         sendUserToApi(
                             UserRequest(
-                                firstName = it.displayName?.split(" ")?.firstOrNull() ?: "",
-                                lastName = it.displayName?.split(" ")?.lastOrNull() ?: "",
+                                firstName = toString(),
+                                lastName = toString(),
                                 email = it.email ?: "",
-                                age = 0 // optionally capture later
+                                age = 0
                             )
                         )
                         navigateToMain(it.email ?: "Google User")
