@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="BlackTextInputStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">#000000</item> <!-- Outline when active -->
+        <item name="boxStrokeErrorColor">#000000</item>
+        <item name="textFillColor">#000000</item>
+        <item name="hintTextColor">#000000</item> <!-- Hint color -->
+        <item name="android:textColorHint">#000000</item>
+        <item name="endIconTint">#000000</item> <!-- Eye icon color -->
+
+    </style>
+</resources>

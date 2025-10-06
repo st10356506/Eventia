@@ -37,13 +37,24 @@
                     android:textStyle="bold" />
 
                 <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_refresh_events"
+                    style="@style/Widget.EventPlanner.Button.Secondary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Refresh"
+                    android:textSize="14sp"
+                    android:layout_marginEnd="8dp"
+                    app:icon="@drawable/ic_refresh_24"
+                    app:iconSize="16dp" />
+
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn_filter_events"
                     style="@style/Widget.EventPlanner.Button.Secondary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Filter"
+                    android:text="Location"
                     android:textSize="14sp"
-                    app:icon="@drawable/ic_filter_list_24"
+                    app:icon="@drawable/ic_place_24"
                     app:iconSize="16dp" />
 
 

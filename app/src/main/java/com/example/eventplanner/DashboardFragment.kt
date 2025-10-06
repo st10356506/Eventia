@@ -1,82 +1,137 @@
 package com.example.eventplanner
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
-import com.google.android.material.snackbar.Snackbar
+import android.widget.EditText
+import android.widget.TextView
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.eventplanner.adapters.TrendingEventsAdapter
+import com.example.eventplanner.models.Event
+import com.example.eventplanner.network.RetrofitClient
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [DashboardFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class DashboardFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var rvTrendingEvents: RecyclerView
+    private lateinit var etSearch: EditText
+    private lateinit var tvWelcome: TextView
+
+    private val trendingEvents = mutableListOf<Event>()
+    private lateinit var adapter: TrendingEventsAdapter
+
+    // Replace with actual username retrieval
+    private val username = "User"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_dashboard, container, false)
-        setupClickListeners(view)
+
+        rvTrendingEvents = view.findViewById(R.id.rv_trending_events)
+        etSearch = view.findViewById(R.id.et_search)
+        tvWelcome = view.findViewById(R.id.tv_welcome)
+
+        tvWelcome.text = "Welcome back, $username"
+
+        adapter = TrendingEventsAdapter(trendingEvents)
+        rvTrendingEvents.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        rvTrendingEvents.adapter = adapter
+
+        fetchTrendingEvents()
+
+        // Search on keyboard enter
+        etSearch.setOnKeyListener { _, keyCode, event ->
+            if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_DOWN) {
+                val query = etSearch.text.toString().trim()
+                searchEvents(query)
+                true
+            } else false
+        }
+
         return view
     }
-    
-    private fun setupClickListeners(view: View) {
-        // Add Event button in upcoming events section
-        view.findViewById<View>(R.id.btn_add_event)?.setOnClickListener {
-            findNavController().navigate(R.id.navigation_events)
-        }
-        
-        // Quick action buttons
-        view.findViewById<View>(R.id.btn_create_event)?.setOnClickListener {
-            findNavController().navigate(R.id.navigation_events)
-        }
-        
-        view.findViewById<View>(R.id.btn_invite_participants)?.setOnClickListener {
-            findNavController().navigate(R.id.navigation_guests)
-        }
-        
-        view.findViewById<View>(R.id.btn_explore_destinations)?.setOnClickListener {
-            findNavController().navigate(R.id.navigation_map)
+
+    private fun fetchTrendingEvents() {
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val response = RetrofitClient.ticketmasterApi.getTrendingEvents(
+                    apiKey = "D5nbt3rsOCggZWiebPysFS6oLaiseKDy",
+                    size = 10
+                )
+
+                if (response.isSuccessful) {
+                    val body = response.body()
+                    val events = body?._embedded?.events?.map { e ->
+                        Event(
+                            id = e.id,
+                            name = e.name,
+                            imageUrl = e.images?.firstOrNull()?.url ?: "",
+                            category = e.classifications?.firstOrNull()?.segment?.name ?: "Other",
+                            date = e.dates?.start?.localDate ?: "TBD",
+                            location = e._embedded?.venues?.firstOrNull()?.city?.name ?: "TBD"
+                        )
+                    } ?: emptyList()
+
+                    withContext(Dispatchers.Main) {
+                        trendingEvents.clear()
+                        trendingEvents.addAll(events)
+                        adapter.notifyDataSetChanged()
+                    }
+                } else {
+                    println("API error: ${response.code()}")
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
         }
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment DashboardFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            DashboardFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+
+    private fun searchEvents(query: String) {
+        if (query.isBlank()) {
+            fetchTrendingEvents()
+            return
+        }
+
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val response = RetrofitClient.ticketmasterApi.searchEvents(
+                    apiKey = "YOUR_TICKETMASTER_API_KEY",
+                    keyword = query,
+                    size = 10.toString()
+                )
+
+                val body = response.body()
+                val events = body?._embedded?.events?.map { e ->
+                    Event(
+                        id = e.id,
+                        name = e.name,
+                        imageUrl = e.images?.firstOrNull()?.url ?: "",
+                        category = e.classifications?.firstOrNull()?.segment?.name ?: "Other",
+                        date = e.dates?.start?.localDate ?: "TBD",
+                        location = e._embedded?.venues?.firstOrNull()?.city?.name ?: "TBD"
+                    )
+                } ?: emptyList()
+
+                withContext(Dispatchers.Main) {
+                    trendingEvents.clear()
+                    trendingEvents.addAll(events)
+                    adapter.notifyDataSetChanged()
                 }
+
+            } catch (e: Exception) {
+                e.printStackTrace()
             }
+        }
     }
 }
