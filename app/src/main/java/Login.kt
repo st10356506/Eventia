@@ -41,6 +41,8 @@ class Login : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        com.example.eventplanner.utils.SettingsManager.applySavedTheme(this)
+        applySavedLocale()
         setContentView(R.layout.fragment_login)
 
         // Initialize Firebase
@@ -100,6 +102,16 @@ class Login : AppCompatActivity() {
             startActivity(Intent(this, RegisterActivity::class.java))
             finish()
         }
+    }
+
+    private fun applySavedLocale() {
+        val code = com.example.eventplanner.utils.SettingsManager.getSavedLocale(this) ?: return
+        val locale = java.util.Locale(code)
+        java.util.Locale.setDefault(locale)
+        val config = android.content.res.Configuration(resources.configuration)
+        config.setLocale(locale)
+        @Suppress("DEPRECATION")
+        resources.updateConfiguration(config, resources.displayMetrics)
     }
 
     // ---------------- Handle Google Sign-In ----------------

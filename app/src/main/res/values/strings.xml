@@ -9,4 +9,128 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="default_web_client_id">809114238557-ih6ih34rcocc73f5ss1m4r4as3sq53ts.apps.googleusercontent.com</string>
+    <string name="settings">Settings</string>
+    <string name="language">Language</string>
+    <string name="select_language">Select language</string>
+    <string name="manage_notifications">Notification settings</string>
+    <string name="privacy_policy">Privacy policy</string>
+    <string name="about">About</string>
+    <string name="logout">Log out</string>
+    <string name="coming_soon">Coming soon</string>
+    <string name="edit">Edit</string>
+    <string name="dark_mode">Dark mode</string>
+    <string name="edit_profile">Edit profile</string>
+    <string name="display_name">Display name</string>
+    <string name="profile_updated">Profile updated</string>
+    <string name="user">User</string>
+    <string name="privacy_policy_content">We respect your privacy. Your data is used only to provide and improve the EventPlanner experience. We do not sell personal data. For full details, see our Privacy Policy in the app settings or website.</string>
+    <string name="save_changes">Save changes</string>
+    <string name="changes_saved">Changes saved</string>
+    <string name="lang_english">English</string>
+    <string name="lang_afrikaans">Afrikaans</string>
+    <string name="lang_zulu">Zulu</string>
+    <string name="lang_xhosa">Xhosa</string>
+    <string name="lang_spanish">Spanish</string>
+    <string name="lang_german">German</string>
+    <string name="lang_french">French</string>
+    <string name="lang_hindi">Hindi</string>
+    <string name="lang_mandarin">Mandarin</string>
+    <!-- Common UI -->
+    <string name="app_logo">App Logo</string>
+    <string name="welcome_back">Welcome Back to Eventia</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="sign_in_with_google">Sign in with Google</string>
+    <string name="back_to_register">Back to Register</string>
+    <string name="already_have_account_login">Already have an account? Login</string>
+    <string name="create_account">Create Account</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="username">Username</string>
+    <string name="age">Age</string>
+    <string name="register">Register</string>
+    <string name="register_with_google">Register with Google</string>
+    <!-- Drawer -->
+    <string name="drawer_dashboard">Dashboard</string>
+    <string name="drawer_events">Events</string>
+    <string name="drawer_itinerary">Itinerary</string>
+    <string name="drawer_guests">Guests</string>
+    <string name="drawer_budget">Budget</string>
+    <string name="drawer_map">Map</string>
+    <string name="drawer_chat">AI Assistant</string>
+
+    <!-- Dashboard Fragment -->
+    <string name="welcome_back_user">Welcome back, %1$s</string>
+    <string name="search_for_events">Search for events</string>
+    <string name="trending_events_worldwide">Trending Events Worldwide</string>
+
+    <!-- Flights Fragment -->
+    <string name="modify">Modify</string>
+    <string name="departure">Departure: %1$s</string>
+    <string name="cheapest">Cheapest</string>
+    <string name="fastest">Fastest</string>
+
+    <!-- Chat Fragment -->
+    <string name="ai_travel_buddy">AI Travel Buddy</string>
+    <string name="ask_me_anything">Ask me anything about your trip</string>
+    <string name="type_a_message">Type a Message</string>
+    <string name="send">Send</string>
+    <string name="chat_coming_soon">Chat functionality coming soon!</string>
+
+    <!-- Guest Fragment -->
+    <string name="confirmed">Confirmed</string>
+    <string name="pending">Pending</string>
+    <string name="declined">Declined</string>
+    <string name="guest_list">Guest List</string>
+    <string name="invite_guests">Invite Guests</string>
+
+    <!-- Itinerary Fragment -->
+    <string name="itinerary_timeline">Itinerary Timeline</string>
+    <string name="add_item">Add Item</string>
+
+    <!-- Budget Fragment -->
+    <string name="budget_overview">Budget Overview</string>
+    <string name="total_budget">Total Budget</string>
+    <string name="total_spent">Total Spent</string>
+    <string name="remaining">Remaining</string>
+    <string name="recent_expenses">Recent Expenses</string>
+    <string name="add_expense">Add Expense</string>
+
+    <!-- Hotel Fragment -->
+    <string name="price">Price</string>
+    <string name="rating">Rating</string>
+    <string name="distance">Distance</string>
+
+    <!-- Map Fragment -->
+    <string name="events_map">Events Map</string>
+    <string name="refresh">Refresh</string>
+    <string name="location">Location</string>
+    <string name="close">Close</string>
+    <string name="view_tickets">View Tickets</string>
+
+    <!-- New Settings Features -->
+    <string name="default_location">Default Location</string>
+    <string name="set_default_location">Set Default Location</string>
+    <string name="current_location">Current Location</string>
+    <string name="search_location">Search Location</string>
+    <string name="location_set">Location set to: %1$s</string>
+    <string name="event_radius">Event Radius</string>
+    <string name="select_radius">Select search radius</string>
+    <string name="radius_1km">1 km</string>
+    <string name="radius_5km">5 km</string>
+    <string name="radius_10km">10 km</string>
+    <string name="radius_25km">25 km</string>
+    <string name="radius_50km">50 km</string>
+    <string name="radius_100km">100 km</string>
+    <string name="change_username">Change Username</string>
+    <string name="new_username">New Username</string>
+    <string name="enter_new_username">Enter new username</string>
+    <string name="username_updated">Username updated successfully</string>
+    <string name="username_error">Failed to update username</string>
+    <string name="username_required">Username is required</string>
+    <string name="username_too_short">Username must be at least 3 characters</string>
+    <string name="username_too_long">Username must be less than 20 characters</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
 </resources>

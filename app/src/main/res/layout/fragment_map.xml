@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/white">
 
     <!-- Header with controls -->
     <com.google.android.material.card.MaterialCardView
@@ -11,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:backgroundTint="@color/surface">
+        android:backgroundTint="@color/white">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -30,24 +31,40 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_refresh_map"
-                style="@style/Widget.EventPlanner.Button.Secondary"
+                style="@style/Widget.Material3.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:text="Refresh"
-                android:textSize="14sp"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:backgroundTint="@color/primary"
                 app:icon="@drawable/ic_refresh_24"
-                app:iconSize="16dp" />
+                app:iconSize="14dp"
+                app:iconTint="@color/on_primary"
+                android:textColor="@color/on_primary"
+                app:cornerRadius="12dp"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="8dp"
+                app:elevation="2dp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_location_map"
-                style="@style/Widget.EventPlanner.Button.Secondary"
+                style="@style/Widget.Material3.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Location"
-                android:textSize="14sp"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:backgroundTint="@color/primary"
                 app:icon="@drawable/ic_place_24"
-                app:iconSize="16dp" />
+                app:iconSize="14dp"
+                app:iconTint="@color/on_primary"
+                android:textColor="@color/on_primary"
+                app:cornerRadius="12dp"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="8dp"
+                app:elevation="2dp" />
 
         </LinearLayout>
 
@@ -68,7 +85,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:backgroundTint="@color/surface"
+        android:backgroundTint="@color/white"
         android:visibility="gone"
         app:cardCornerRadius="16dp"
         app:cardElevation="8dp">
@@ -181,14 +198,30 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
-                    android:text="Close" />
+                    android:text="Close"
+                    android:textStyle="bold"
+                    android:textSize="12sp"
+                    android:textColor="@color/primary"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="8dp"
+                    app:cornerRadius="12dp"
+                    app:iconTint="@color/primary"
+                    app:elevation="2dp" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn_view_tickets"
                     style="@style/Widget.Material3.Button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="View Tickets" />
+                    android:text="View Tickets"
+                    android:textStyle="bold"
+                    android:textSize="12sp"
+                    app:backgroundTint="@color/primary"
+                    android:textColor="@color/on_primary"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="8dp"
+                    app:cornerRadius="12dp"
+                    app:elevation="2dp" />
 
             </LinearLayout>
 

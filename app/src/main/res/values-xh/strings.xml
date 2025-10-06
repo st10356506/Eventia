@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">EventPlanner</string>
+    <string name="settings">Iisetingi</string>
+    <string name="language">Ulwimi</string>
+    <string name="select_language">Khetha ulwimi</string>
+    <string name="manage_notifications">Iisetingi zezaziso</string>
+    <string name="privacy_policy">Umgaqo-nkqubo wabucala</string>
+    <string name="logout">Phuma</string>
+    <string name="edit">Hlela</string>
+    <string name="dark_mode">Imowudi emnyama</string>
+    <string name="edit_profile">Hlela iprofayile</string>
+    <string name="display_name">Igama lokubonisa</string>
+    <string name="profile_updated">Iprofayile ihlaziyiwe</string>
+    <string name="user">Umsebenzisi</string>
+    <string name="save_changes">Gcina iinguqu</string>
+    <string name="changes_saved">Iinguqu zigciniwe</string>
+    <string name="lang_english">IsiNgesi</string>
+    <string name="lang_afrikaans">IsiBhulu</string>
+    <string name="lang_zulu">IsiZulu</string>
+    <string name="lang_xhosa">IsiXhosa</string>
+    <string name="lang_spanish">Ispanish</string>
+    <string name="lang_german">Isilwiyane</string>
+    <string name="lang_french">IsiFrentshi</string>
+    <string name="lang_hindi">IsiHindi</string>
+    <string name="lang_mandarin">IsiMandarin</string>
+    <string name="app_logo">Ilogo ye-app</string>
+    <string name="welcome_back">Wamkelekile kwakhona e-Eventia</string>
+    <string name="email">I-imeyile</string>
+    <string name="password">Iphasiwedi</string>
+    <string name="login">Ngena</string>
+    <string name="sign_in_with_google">Ngena ngeGoogle</string>
+    <string name="back_to_register">Buyela kubhaliso</string>
+    <string name="already_have_account_login">Sele unayo iakhawunti? Ngena</string>
+    <string name="create_account">Yenza iakhawunti</string>
+    <string name="first_name">Igama</string>
+    <string name="last_name">Ifani</string>
+    <string name="username">Igama lomsebenzisi</string>
+    <string name="age">Ubudala</string>
+    <string name="register">Bhalisa</string>
+    <string name="register_with_google">Bhalisa ngeGoogle</string>
+    <string name="drawer_dashboard">Ideshibhodi</string>
+    <string name="drawer_events">Iimicimbi</string>
+    <string name="drawer_itinerary">Isicwangciso sohambo</string>
+    <string name="drawer_guests">Iindwendwe</string>
+    <string name="drawer_budget">Uhlahlo-lwabiwo-mali</string>
+    <string name="drawer_map">Imephu</string>
+    <string name="drawer_chat">Umncedisi we-AI</string>
+
+    <!-- Dashboard Fragment -->
+    <string name="welcome_back_user">Wamkelekile kwakhona, %1$s</string>
+    <string name="search_for_events">Khangela iimicimbi</string>
+    <string name="trending_events_worldwide">Iimicimbi Ezidumileyo Emhlabeni Wonke</string>
+
+    <!-- Flights Fragment -->
+    <string name="modify">Hlela</string>
+    <string name="departure">Ukuphuma: %1$s</string>
+    <string name="cheapest">Kubiza kancinci</string>
+    <string name="fastest">Kukhawuleza</string>
+
+    <!-- Chat Fragment -->
+    <string name="ai_travel_buddy">I-AI Travel Buddy</string>
+    <string name="ask_me_anything">Ndibuze nantoni na ngohambo lwakho</string>
+    <string name="type_a_message">Chwetheza umyalezo</string>
+    <string name="send">Thumela</string>
+    <string name="chat_coming_soon">Umsebenzi we-chat uza kungekudala!</string>
+
+    <!-- Guest Fragment -->
+    <string name="confirmed">Kuvunyiwe</string>
+    <string name="pending">Kulinde</string>
+    <string name="declined">Kwenqatshwe</string>
+    <string name="guest_list">Uluhlu lweendwendwe</string>
+    <string name="invite_guests">Mema iindwendwe</string>
+
+    <!-- Itinerary Fragment -->
+    <string name="itinerary_timeline">Ixesha Lohambo</string>
+    <string name="add_item">Yongeza into</string>
+
+    <!-- Budget Fragment -->
+    <string name="budget_overview">Ukujonga uhlahlo-lwabiwo-mali</string>
+    <string name="total_budget">Uhlahlo-lwabiwo-mali olupheleleyo</string>
+    <string name="total_spent">Kuchithwe konke</string>
+    <string name="remaining">Okusele</string>
+    <string name="recent_expenses">Iindleko zakamuva</string>
+    <string name="add_expense">Yongeza indleko</string>
+
+    <!-- Hotel Fragment -->
+    <string name="price">Ixabiso</string>
+    <string name="rating">Isilinganiso</string>
+    <string name="distance">Umgama</string>
+
+    <!-- Map Fragment -->
+    <string name="events_map">Imephu YeeMicimbi</string>
+    <string name="refresh">Vuselela</string>
+    <string name="location">Indawo</string>
+    <string name="close">Vala</string>
+    <string name="view_tickets">Jonga amathikithi</string>
+</resources>

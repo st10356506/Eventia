@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -17,18 +18,17 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import com.google.firebase.auth.FirebaseAuth
+
 
 class DashboardFragment : Fragment() {
 
     private lateinit var rvTrendingEvents: RecyclerView
     private lateinit var etSearch: EditText
     private lateinit var tvWelcome: TextView
-
+    private var username: String? = null
     private val trendingEvents = mutableListOf<Event>()
     private lateinit var adapter: TrendingEventsAdapter
-
-    // Replace with actual username retrieval
-    private val username = "User"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,16 +40,17 @@ class DashboardFragment : Fragment() {
         etSearch = view.findViewById(R.id.et_search)
         tvWelcome = view.findViewById(R.id.tv_welcome)
 
+        val user = FirebaseAuth.getInstance().currentUser
+        username = user?.displayName ?: user?.email?.substringBefore("@") ?: "User"
         tvWelcome.text = "Welcome back, $username"
 
         adapter = TrendingEventsAdapter(trendingEvents)
         rvTrendingEvents.layoutManager =
-            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         rvTrendingEvents.adapter = adapter
 
         fetchTrendingEvents()
 
-        // Search on keyboard enter
         etSearch.setOnKeyListener { _, keyCode, event ->
             if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_DOWN) {
                 val query = etSearch.text.toString().trim()
@@ -78,7 +79,7 @@ class DashboardFragment : Fragment() {
                             imageUrl = e.images?.firstOrNull()?.url ?: "",
                             category = e.classifications?.firstOrNull()?.segment?.name ?: "Other",
                             date = e.dates?.start?.localDate ?: "TBD",
-                            location = e._embedded?.venues?.firstOrNull()?.city?.name ?: "TBD"
+                            location = e._embedded?.venues?.firstOrNull()?.city?.name ?: "TBC"
                         )
                     } ?: emptyList()
 
@@ -90,7 +91,11 @@ class DashboardFragment : Fragment() {
                 } else {
                     println("API error: ${response.code()}")
                 }
-            } catch (e: Exception) {
+            } catch (e: java.net.SocketTimeoutException) {
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(context, "Request timed out", Toast.LENGTH_SHORT).show()
+                }
+            }catch (e: Exception) {
                 e.printStackTrace()
             }
         }
@@ -106,7 +111,6 @@ class DashboardFragment : Fragment() {
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 val response = RetrofitClient.ticketmasterApi.searchEvents(
-                    apiKey = "YOUR_TICKETMASTER_API_KEY",
                     keyword = query,
                     size = 10.toString()
                 )
@@ -119,7 +123,7 @@ class DashboardFragment : Fragment() {
                         imageUrl = e.images?.firstOrNull()?.url ?: "",
                         category = e.classifications?.firstOrNull()?.segment?.name ?: "Other",
                         date = e.dates?.start?.localDate ?: "TBD",
-                        location = e._embedded?.venues?.firstOrNull()?.city?.name ?: "TBD"
+                        location = e._embedded?.venues?.firstOrNull()?.city?.name ?: "TBC"
                     )
                 } ?: emptyList()
 

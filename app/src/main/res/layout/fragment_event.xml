@@ -1,86 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/surface_variant"
-    android:padding="16dp"
-    android:clipToPadding="false"
-    android:paddingBottom="80dp">
+    android:background="@color/surface_variant">
 
-    <LinearLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingTop="16dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="96dp"
+        android:scrollbars="none"
+        android:overScrollMode="never">
 
-        <com.google.android.material.card.MaterialCardView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            style="@style/Widget.EventPlanner.Card"
-            android:backgroundTint="@color/surface">
+            android:orientation="vertical">
 
-            <LinearLayout
+            <!-- Header Card -->
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="20dp">
+                android:layout_marginBottom="20dp"
+                app:cardElevation="4dp"
+                app:cardCornerRadius="20dp"
+                app:cardBackgroundColor="@color/surface">
 
-                <TextView
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="All Events"
-                    android:textColor="@color/on_surface"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:orientation="vertical"
+                    android:padding="20dp">
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btn_refresh_events"
-                    style="@style/Widget.EventPlanner.Button.Secondary"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Refresh"
-                    android:textSize="14sp"
-                    android:layout_marginEnd="8dp"
-                    app:icon="@drawable/ic_refresh_24"
-                    app:iconSize="16dp" />
+                    <!-- Title -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="All Events"
+                        android:textColor="@color/on_surface"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.01"
+                        android:paddingBottom="16dp" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btn_filter_events"
-                    style="@style/Widget.EventPlanner.Button.Secondary"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Location"
-                    android:textSize="14sp"
-                    app:icon="@drawable/ic_place_24"
-                    app:iconSize="16dp" />
+                    <!-- Buttons Row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btn_refresh_events"
+                            style="@style/Widget.Material3.Button.TonalButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="8dp"
+                            android:text="Refresh"
+                            android:textSize="14sp"
+                            android:paddingVertical="12dp"
+                            android:textStyle="bold"
+                            app:cornerRadius="14dp"
+                            app:backgroundTint="@color/primary"
+                            app:iconTint="@color/on_primary"
+                            android:textColor="@color/on_primary"
+                            app:icon="@drawable/ic_refresh_24"
+                            app:iconSize="18dp"
+                            app:iconGravity="start"
+                            app:elevation="4dp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btn_filter_events"
+                            style="@style/Widget.Material3.Button.TonalButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="8dp"
+                            android:text="Filter"
+                            android:textSize="14sp"
+                            android:paddingVertical="12dp"
+                            android:textStyle="bold"
+                            app:cornerRadius="14dp"
+                            app:backgroundTint="@color/primary"
+                            app:iconTint="@color/on_primary"
+                            android:textColor="@color/on_primary"
+                            app:icon="@drawable/ic_filter_list_24"
+                            app:iconSize="18dp"
+                            app:iconGravity="start"
+                            app:elevation="4dp" />
 
 
-            </LinearLayout>
+                    </LinearLayout>
 
-        </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_events"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:listitem="@layout/item_event" />
+            </com.google.android.material.card.MaterialCardView>
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab_new_event"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_margin="16dp"
-            android:contentDescription="Create New Event"
-            android:text="New Event"
-            android:paddingBottom="50dp"
-            app:backgroundTint="@color/primary"
-            app:tint="@color/on_primary"
-            app:srcCompat="@drawable/ic_add_24" />
+            <!-- Events List -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_events"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:nestedScrollingEnabled="false"
+                android:overScrollMode="never"
+                tools:listitem="@layout/item_event" />
 
-    </LinearLayout>
+        </LinearLayout>
 
-</androidx.core.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Floating Action Button -->
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/fab_new_event"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="20dp"
+        android:text="New Event"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:contentDescription="Create New Event"
+        app:backgroundTint="@color/primary"
+        app:iconTint="@color/on_primary"
+        app:icon="@drawable/ic_add_24"
+        app:iconSize="22dp"
+        app:elevation="6dp"
+        app:cornerRadius="16dp" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

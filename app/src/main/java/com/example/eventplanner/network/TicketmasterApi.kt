@@ -17,7 +17,7 @@ interface TicketmasterApi {
         @Query("sort") sort: String = "date,asc" // sort by date
     ): Response<TicketmasterResponse>
 
-    @GET("discovery/v2/events.json")
+    @GET("events.json")
     suspend fun getTrendingEvents(
         @Query("apikey") apiKey: String,
         @Query("size") size: Int = 10,

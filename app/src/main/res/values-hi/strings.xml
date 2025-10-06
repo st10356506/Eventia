@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">EventPlanner</string>
+    <string name="settings">सेटिंग्स</string>
+    <string name="language">भाषा</string>
+    <string name="select_language">भाषा चुनें</string>
+    <string name="manage_notifications">सूचना सेटिंग्स</string>
+    <string name="privacy_policy">गोपनीयता नीति</string>
+    <string name="logout">लॉग आउट</string>
+    <string name="edit">संपादित करें</string>
+    <string name="dark_mode">डार्क मोड</string>
+    <string name="edit_profile">प्रोफ़ाइल संपादित करें</string>
+    <string name="display_name">प्रदर्शित नाम</string>
+    <string name="profile_updated">प्रोफ़ाइल अपडेट किया गया</string>
+    <string name="user">उपयोगकर्ता</string>
+    <string name="save_changes">परिवर्तन सहेजें</string>
+    <string name="changes_saved">परिवर्तन सहेजे गए</string>
+    <string name="lang_english">अंग्रेज़ी</string>
+    <string name="lang_afrikaans">अफ़्रीकांस</string>
+    <string name="lang_zulu">ज़ुलु</string>
+    <string name="lang_xhosa">ख़ोसा</string>
+    <string name="lang_spanish">स्पेनिश</string>
+    <string name="lang_german">जर्मन</string>
+    <string name="lang_french">फ़्रेंच</string>
+    <string name="lang_hindi">हिंदी</string>
+    <string name="lang_mandarin">मैंडरिन</string>
+    <string name="app_logo">ऐप लोगो</string>
+    <string name="welcome_back">इवेंटिया में आपका स्वागत है</string>
+    <string name="email">ईमेल</string>
+    <string name="password">पासवर्ड</string>
+    <string name="login">लॉगिन</string>
+    <string name="sign_in_with_google">गूगल से साइन इन करें</string>
+    <string name="back_to_register">रजिस्टर पर वापस जाएं</string>
+    <string name="already_have_account_login">क्या आपका खाता है? लॉगिन करें</string>
+    <string name="create_account">खाता बनाएँ</string>
+    <string name="first_name">पहला नाम</string>
+    <string name="last_name">अंतिम नाम</string>
+    <string name="username">उपयोगकर्ता नाम</string>
+    <string name="age">आयु</string>
+    <string name="register">पंजीकरण</string>
+    <string name="register_with_google">गूगल से पंजीकरण करें</string>
+    <string name="drawer_dashboard">डैशबोर्ड</string>
+    <string name="drawer_events">ईवेंट्स</string>
+    <string name="drawer_itinerary">यात्रा कार्यक्रम</string>
+    <string name="drawer_guests">अतिथि</string>
+    <string name="drawer_budget">बजट</string>
+    <string name="drawer_map">मानचित्र</string>
+    <string name="drawer_chat">एआई सहायक</string>
+
+    <!-- Dashboard Fragment -->
+    <string name="welcome_back_user">वापस स्वागत है, %1$s</string>
+    <string name="search_for_events">इवेंट्स खोजें</string>
+    <string name="trending_events_worldwide">विश्वव्यापी ट्रेंडिंग इवेंट्स</string>
+
+    <!-- Flights Fragment -->
+    <string name="modify">संशोधित करें</string>
+    <string name="departure">प्रस्थान: %1$s</string>
+    <string name="cheapest">सबसे सस्ता</string>
+    <string name="fastest">सबसे तेज़</string>
+
+    <!-- Chat Fragment -->
+    <string name="ai_travel_buddy">एआई ट्रैवल बडी</string>
+    <string name="ask_me_anything">अपनी यात्रा के बारे में कुछ भी पूछें</string>
+    <string name="type_a_message">संदेश टाइप करें</string>
+    <string name="send">भेजें</string>
+    <string name="chat_coming_soon">चैट फंक्शनलिटी जल्द आ रही है!</string>
+
+    <!-- Guest Fragment -->
+    <string name="confirmed">पुष्टि की गई</string>
+    <string name="pending">लंबित</string>
+    <string name="declined">अस्वीकृत</string>
+    <string name="guest_list">अतिथि सूची</string>
+    <string name="invite_guests">अतिथियों को आमंत्रित करें</string>
+
+    <!-- Itinerary Fragment -->
+    <string name="itinerary_timeline">यात्रा कार्यक्रम समयरेखा</string>
+    <string name="add_item">आइटम जोड़ें</string>
+
+    <!-- Budget Fragment -->
+    <string name="budget_overview">बजट अवलोकन</string>
+    <string name="total_budget">कुल बजट</string>
+    <string name="total_spent">कुल खर्च</string>
+    <string name="remaining">शेष</string>
+    <string name="recent_expenses">हाल के खर्च</string>
+    <string name="add_expense">खर्च जोड़ें</string>
+
+    <!-- Hotel Fragment -->
+    <string name="price">मूल्य</string>
+    <string name="rating">रेटिंग</string>
+    <string name="distance">दूरी</string>
+
+    <!-- Map Fragment -->
+    <string name="events_map">इवेंट्स मानचित्र</string>
+    <string name="refresh">रिफ्रेश करें</string>
+    <string name="location">स्थान</string>
+    <string name="close">बंद करें</string>
+    <string name="view_tickets">टिकट देखें</string>
+</resources>

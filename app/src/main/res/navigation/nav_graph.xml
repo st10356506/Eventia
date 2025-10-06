@@ -46,5 +46,29 @@
         android:name="com.example.eventplanner.ChatFragment"
         android:label="ai_assistant"
         tools:layout="@layout/fragment_chat" />
+    <!-- Guests -->
+    <fragment
+        android:id="@+id/navigation_guests"
+        android:name="com.example.eventplanner.ui.GuestFragment"
+        android:label="guests"
+        tools:layout="@layout/fragment_guest" >
+
+        <!-- Action from GuestFragment to InvitesFragment -->
+        <action
+            android:id="@+id/action_guestFragment_to_invitesFragment"
+            app:destination="@id/invitesFragment" />
+    </fragment>
+
+    <!-- Invites -->
+    <fragment
+        android:id="@+id/invitesFragment"
+        android:name="com.example.eventplanner.ui.InvitesFragment"
+        android:label="invites"
+        tools:layout="@layout/fragment_invite" />
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.example.eventplanner.SettingsFragment"
+        android:label="@string/settings"
+        tools:layout="@layout/fragment_settings" />
 
 </navigation>

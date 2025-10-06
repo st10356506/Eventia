@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:background="@color/white"
     android:padding="24dp">
 
     <TextView
@@ -43,30 +44,51 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="end">
+        android:gravity="center_vertical"
+        android:weightSum="3"
+        android:layout_marginTop="8dp">
 
+        <!-- Cancel Button -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_cancel_location"
             style="@style/Widget.Material3.Button.TextButton"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="Cancel"
+            android:textStyle="bold"
+            android:textColor="@color/primary"
+            app:iconTint="@color/primary"
             android:layout_marginEnd="8dp" />
 
+        <!-- Use Current Location Button -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_use_current_location"
-            style="@style/Widget.Material3.Button.TextButton"
-            android:layout_width="wrap_content"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="Use Current"
+            android:textStyle="bold"
+            android:textColor="@color/primary"
+            app:strokeColor="@color/primary"
+            app:iconTint="@color/primary"
             android:layout_marginEnd="8dp" />
 
+        <!-- Confirm/Search Events Button -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_confirm_location"
             style="@style/Widget.Material3.Button"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Search Events" />
+            android:layout_weight="1"
+            android:text="Search Events"
+            android:textStyle="bold"
+            app:cornerRadius="14dp"
+            app:backgroundTint="@color/primary"
+            app:iconTint="@color/on_primary"
+            android:textColor="@color/on_primary"
+            app:elevation="4dp" />
 
     </LinearLayout>
 

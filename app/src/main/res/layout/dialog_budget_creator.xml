@@ -64,6 +64,7 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
+            <!-- Title -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_expense_title"
                 android:layout_width="match_parent"
@@ -78,9 +79,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text" />
-
             </com.google.android.material.textfield.TextInputLayout>
 
+            <!-- Description -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_expense_description"
                 android:layout_width="match_parent"
@@ -94,11 +95,10 @@
                     android:id="@+id/et_expense_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textMultiLine"
-                    android:lines="2" />
-
+                    android:inputType="textMultiLine" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <!-- Amount & Currency -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -122,7 +122,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="numberDecimal" />
-
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -139,13 +138,12 @@
                         android:id="@+id/spinner_currency"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="none" />
-
+                        android:focusable="false"
+                        android:clickable="true" />
                 </com.google.android.material.textfield.TextInputLayout>
-
             </LinearLayout>
 
-            <!-- Category Section -->
+            <!-- Category -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -154,7 +152,7 @@
                 android:textColor="@color/on_surface"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:drawable="@drawable/ic_filter_list_24"
+                android:drawableStart="@drawable/ic_filter_list_24"
                 android:drawablePadding="8dp"
                 android:drawableTint="@color/primary" />
 
@@ -171,10 +169,11 @@
                     android:id="@+id/spinner_expense_category"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="none" />
-
+                    android:focusable="false"
+                    android:clickable="true" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <!-- Date & Payment Method -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -198,8 +197,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:focusable="false"
-                        android:inputType="none" />
-
+                        android:clickable="true" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -216,12 +214,12 @@
                         android:id="@+id/spinner_payment_method"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="none" />
-
+                        android:focusable="false"
+                        android:clickable="true" />
                 </com.google.android.material.textfield.TextInputLayout>
-
             </LinearLayout>
 
+            <!-- Notes -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_notes"
                 android:layout_width="match_parent"
@@ -235,13 +233,10 @@
                     android:id="@+id/et_notes"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textMultiLine"
-                    android:lines="2" />
-
+                    android:inputType="textMultiLine" />
             </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
-
     </androidx.core.widget.NestedScrollView>
 
     <View
@@ -272,7 +267,5 @@
             android:layout_height="wrap_content"
             android:paddingHorizontal="24dp"
             android:text="Add Expense" />
-
     </LinearLayout>
-
 </LinearLayout>

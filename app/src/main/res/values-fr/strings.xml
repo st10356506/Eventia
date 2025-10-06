@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">EventPlanner</string>
+    <string name="settings">Paramètres</string>
+    <string name="language">Langue</string>
+    <string name="select_language">Choisir la langue</string>
+    <string name="manage_notifications">Paramètres des notifications</string>
+    <string name="privacy_policy">Politique de confidentialité</string>
+    <string name="logout">Se déconnecter</string>
+    <string name="edit">Modifier</string>
+    <string name="dark_mode">Mode sombre</string>
+    <string name="edit_profile">Modifier le profil</string>
+    <string name="display_name">Nom d’affichage</string>
+    <string name="profile_updated">Profil mis à jour</string>
+    <string name="user">Utilisateur</string>
+    <string name="save_changes">Enregistrer les modifications</string>
+    <string name="changes_saved">Modifications enregistrées</string>
+    <string name="lang_english">Anglais</string>
+    <string name="lang_afrikaans">Afrikaans</string>
+    <string name="lang_zulu">Zoulou</string>
+    <string name="lang_xhosa">Xhosa</string>
+    <string name="lang_spanish">Espagnol</string>
+    <string name="lang_german">Allemand</string>
+    <string name="lang_french">Français</string>
+    <string name="lang_hindi">Hindi</string>
+    <string name="lang_mandarin">Mandarin</string>
+    <string name="app_logo">Logo de l’application</string>
+    <string name="welcome_back">Bon retour sur Eventia</string>
+    <string name="email">E-mail</string>
+    <string name="password">Mot de passe</string>
+    <string name="login">Se connecter</string>
+    <string name="sign_in_with_google">Se connecter avec Google</string>
+    <string name="back_to_register">Retour à l’inscription</string>
+    <string name="already_have_account_login">Vous avez déjà un compte ? Connectez-vous</string>
+    <string name="create_account">Créer un compte</string>
+    <string name="first_name">Prénom</string>
+    <string name="last_name">Nom</string>
+    <string name="username">Nom d’utilisateur</string>
+    <string name="age">Âge</string>
+    <string name="register">S’inscrire</string>
+    <string name="register_with_google">S’inscrire avec Google</string>
+    <string name="drawer_dashboard">Tableau de bord</string>
+    <string name="drawer_events">Événements</string>
+    <string name="drawer_itinerary">Itinéraire</string>
+    <string name="drawer_guests">Invités</string>
+    <string name="drawer_budget">Budget</string>
+    <string name="drawer_map">Carte</string>
+    <string name="drawer_chat">Assistant IA</string>
+
+    <!-- Dashboard Fragment -->
+    <string name="welcome_back_user">Bon retour, %1$s</string>
+    <string name="search_for_events">Rechercher des événements</string>
+    <string name="trending_events_worldwide">Événements Tendances Mondialement</string>
+
+    <!-- Flights Fragment -->
+    <string name="modify">Modifier</string>
+    <string name="departure">Départ : %1$s</string>
+    <string name="cheapest">Moins cher</string>
+    <string name="fastest">Plus rapide</string>
+
+    <!-- Chat Fragment -->
+    <string name="ai_travel_buddy">Compagnon de Voyage IA</string>
+    <string name="ask_me_anything">Demandez-moi n\'importe quoi sur votre voyage</string>
+    <string name="type_a_message">Tapez un message</string>
+    <string name="send">Envoyer</string>
+    <string name="chat_coming_soon">Fonctionnalité de chat bientôt disponible !</string>
+
+    <!-- Guest Fragment -->
+    <string name="confirmed">Confirmé</string>
+    <string name="pending">En attente</string>
+    <string name="declined">Refusé</string>
+    <string name="guest_list">Liste des invités</string>
+    <string name="invite_guests">Inviter des invités</string>
+
+    <!-- Itinerary Fragment -->
+    <string name="itinerary_timeline">Chronologie de l\'itinéraire</string>
+    <string name="add_item">Ajouter un élément</string>
+
+    <!-- Budget Fragment -->
+    <string name="budget_overview">Aperçu du budget</string>
+    <string name="total_budget">Budget total</string>
+    <string name="total_spent">Total dépensé</string>
+    <string name="remaining">Restant</string>
+    <string name="recent_expenses">Dépenses récentes</string>
+    <string name="add_expense">Ajouter une dépense</string>
+
+    <!-- Hotel Fragment -->
+    <string name="price">Prix</string>
+    <string name="rating">Note</string>
+    <string name="distance">Distance</string>
+
+    <!-- Map Fragment -->
+    <string name="events_map">Carte des événements</string>
+    <string name="refresh">Actualiser</string>
+    <string name="location">Emplacement</string>
+    <string name="close">Fermer</string>
+    <string name="view_tickets">Voir les billets</string>
+</resources>

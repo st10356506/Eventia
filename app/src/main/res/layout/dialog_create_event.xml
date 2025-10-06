@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:maxHeight="600dp">
+    android:maxHeight="600dp"
+    android:background="@android:color/white"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -11,70 +13,89 @@
         android:orientation="vertical"
         android:padding="24dp">
 
+        <!-- Title -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Create New Event"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:textColor="@color/on_surface"
+            android:textColor="@android:color/black"
             android:layout_marginBottom="16dp" />
 
+        <!-- Event Title -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            app:boxStrokeColor="@color/primary"
-            app:hintTextColor="@color/primary">
+            style="@style/BlackTextInputStyle"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@android:color/black"
+            app:hintTextColor="@android:color/black"
+            android:layout_marginBottom="8dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_event_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Event Title"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/black"
                 android:inputType="textCapWords" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Event Description -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            app:boxStrokeColor="@color/primary"
-            app:hintTextColor="@color/primary">
+            style="@style/BlackTextInputStyle"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@android:color/black"
+            app:hintTextColor="@android:color/black"
+            android:layout_marginBottom="8dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_event_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Event Description"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/black"
                 android:inputType="textMultiLine"
                 android:maxLines="3" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Event Type -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            app:boxStrokeColor="@color/primary"
-            app:hintTextColor="@color/primary">
+            style="@style/BlackTextInputStyle"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@android:color/black"
+            app:hintTextColor="@android:color/black"
+            android:layout_marginBottom="8dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_event_type"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Event Type (e.g., Conference, Workshop, Meetup)"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/black"
                 android:inputType="textCapWords" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Event Date -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            app:boxStrokeColor="@color/primary"
-            app:hintTextColor="@color/primary">
+            style="@style/BlackTextInputStyle"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@android:color/black"
+            app:hintTextColor="@android:color/black"
+            android:layout_marginBottom="8dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_event_date"
@@ -82,26 +103,34 @@
                 android:layout_height="wrap_content"
                 android:focusable="false"
                 android:clickable="true"
-                android:hint="Start Date" />
+                android:hint="Start Date"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/black" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Event Location -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            app:boxStrokeColor="@color/primary"
-            app:hintTextColor="@color/primary">
+            style="@style/BlackTextInputStyle"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@android:color/black"
+            app:hintTextColor="@android:color/black"
+            android:layout_marginBottom="8dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_event_location"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Location"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/black"
                 android:inputType="textCapWords" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Buttons -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -109,23 +138,32 @@
             android:gravity="end"
             android:layout_marginTop="16dp">
 
+            <!-- Cancel Button -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_cancel_event"
-                style="@style/Widget.Material3.Button.TextButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Cancel"
-                android:layout_marginEnd="8dp" />
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginEnd="8dp"
+                app:cornerRadius="12dp"
+                app:backgroundTint="@color/primary"
+                android:textColor="@color/on_primary" />
 
+            <!-- Create Event Button -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_create_event"
-                style="@style/Widget.Material3.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Create Event" />
+                android:text="Create Event"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:cornerRadius="12dp"
+                app:backgroundTint="@color/primary"
+                android:textColor="@color/on_primary" />
 
         </LinearLayout>
 
     </LinearLayout>
-
 </ScrollView>

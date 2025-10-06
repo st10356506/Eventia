@@ -24,6 +24,8 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.material.snackbar.Snackbar
 import com.example.eventplanner.utils.LocationUtils
+import com.example.eventplanner.utils.SettingsManager
+import com.example.eventplanner.utils.EventLocationUtils
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -39,6 +41,8 @@ class EventFragment : Fragment() {
     private var allEvents = mutableListOf<UnifiedEvent>()
     private var currentClassification: String? = null
     private var currentKeyword: String? = null
+    private var lastLoadedLocation: String? = null
+    private var lastLoadedRadius: Int = -1
 
     private val locationPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
@@ -67,8 +71,14 @@ class EventFragment : Fragment() {
         setupLocationClient()
         setupClickListeners()
         loadUserCreatedEvents()
-        // Show location dialog to start finding events
-        showLocationInputDialog()
+        // Load events based on user's default location settings
+        loadEventsBasedOnSettings()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // Refresh events when returning to this fragment (in case settings changed)
+        loadEventsBasedOnSettings()
     }
 
     private fun setupRecyclerView() {
@@ -97,16 +107,66 @@ class EventFragment : Fragment() {
         }
     }
 
-    private fun loadUserEvents() {
-        if (::fusedLocationClient.isInitialized) {
-            getUserLocationAndFetchEvents()
+    private fun loadEventsBasedOnSettings() {
+        val defaultLocation = SettingsManager.getDefaultLocation(requireContext())
+        val radiusKm = SettingsManager.getEventRadius(requireContext())
+
+        if (defaultLocation != null) {
+            val (lat, lng, locationName) = defaultLocation
+
+            // Check if location or radius has changed
+            val hasLocationChanged = lastLoadedLocation != locationName
+            val hasRadiusChanged = lastLoadedRadius != radiusKm
+
+            if (hasLocationChanged || hasRadiusChanged || allEvents.isEmpty()) {
+                // Clear events and reload
+                allEvents.clear()
+                eventAdapter.updateEvents(allEvents)
+                fetchEventsFromTicketmasterWithSettings(lat, lng, radiusKm)
+
+                // Update tracking variables
+                lastLoadedLocation = locationName
+                lastLoadedRadius = radiusKm
+
+                Snackbar.make(
+                    binding.root,
+                    "Loading events within ${radiusKm}km of $locationName",
+                    Snackbar.LENGTH_SHORT
+                ).show()
+            }
+            // If nothing changed and events exist, don't reload
         } else {
+            // No default location set, show location dialog
             showLocationInputDialog()
         }
     }
 
+    private fun loadUserEvents() {
+        // Force reload by clearing tracking variables
+        lastLoadedLocation = null
+        lastLoadedRadius = -1
+        loadEventsBasedOnSettings()
+    }
+
+    fun refreshEventsFromSettings() {
+        // Force reload by clearing tracking variables
+        lastLoadedLocation = null
+        lastLoadedRadius = -1
+        loadEventsBasedOnSettings()
+    }
+
     private fun showLocationInputDialog() {
         val dialogBinding = DialogLocationInputBinding.inflate(layoutInflater)
+
+        // Show current settings if available
+        val defaultLocation = SettingsManager.getDefaultLocation(requireContext())
+        val radiusKm = SettingsManager.getEventRadius(requireContext())
+
+        if (defaultLocation != null) {
+            val (_, _, locationName) = defaultLocation
+            dialogBinding.tvCurrentSettings.text = "Current: $locationName (${radiusKm}km radius)"
+            dialogBinding.tvCurrentSettings.visibility = View.VISIBLE
+        }
 
         val dialog = AlertDialog.Builder(requireContext())
             .setView(dialogBinding.root)
@@ -129,7 +189,40 @@ class EventFragment : Fragment() {
                 dialog.dismiss()
                 allEvents.clear()
                 eventAdapter.updateEvents(allEvents)
-                fetchEventsFromEventbriteByLocation(locationInput)
+
+                // Try to get coordinates for the location and save as default
+                CoroutineScope(Dispatchers.IO).launch {
+                    try {
+                        val resolved = LocationUtils.getLocationFromAddress(requireContext(), locationInput)
+                        withContext(Dispatchers.Main) {
+                            if (resolved != null) {
+                                // Save as default location
+                                SettingsManager.saveDefaultLocation(requireContext(), resolved.latitude, resolved.longitude, locationInput)
+                                val radiusKm = SettingsManager.getEventRadius(requireContext())
+
+                                // Reset tracking variables to force reload
+                                lastLoadedLocation = null
+                                lastLoadedRadius = -1
+
+                                fetchEventsFromTicketmasterWithSettings(resolved.latitude, resolved.longitude, radiusKm)
+
+                                Snackbar.make(
+                                    binding.root,
+                                    "Location set as default. Loading events within ${radiusKm}km of $locationInput",
+                                    Snackbar.LENGTH_LONG
+                                ).show()
+                            } else {
+                                // Fallback to keyword search
+                                fetchEventsFromEventbriteByLocation(locationInput)
+                            }
+                        }
+                    } catch (e: Exception) {
+                        withContext(Dispatchers.Main) {
+                            // Fallback to keyword search
+                            fetchEventsFromEventbriteByLocation(locationInput)
+                        }
+                    }
+                }
             } else {
                 Toast.makeText(requireContext(), "Please enter a location", Toast.LENGTH_SHORT).show()
             }
@@ -257,11 +350,12 @@ class EventFragment : Fragment() {
             allEvents.clear()
             eventAdapter.updateEvents(allEvents)
 
-            if (::fusedLocationClient.isInitialized) {
-                getUserLocationAndFetchEvents()
-            } else {
-                showLocationInputDialog()
-            }
+            // Reset tracking variables to force reload with new filters
+            lastLoadedLocation = null
+            lastLoadedRadius = -1
+
+            // Reload events with current settings
+            loadEventsBasedOnSettings()
         }
 
         dialogBinding.chipClear.setOnClickListener {
@@ -291,19 +385,34 @@ class EventFragment : Fragment() {
 
         fusedLocationClient.lastLocation.addOnSuccessListener { location ->
             location?.let {
-                fetchEventsFromEventbrite(it.latitude, it.longitude)
+                // Save current location as default
+                val locationName = "Current Location"
+                SettingsManager.saveDefaultLocation(requireContext(), it.latitude, it.longitude, locationName)
+                val radiusKm = SettingsManager.getEventRadius(requireContext())
+
+                // Reset tracking variables to force reload
+                lastLoadedLocation = null
+                lastLoadedRadius = -1
+
+                fetchEventsFromTicketmasterWithSettings(it.latitude, it.longitude, radiusKm)
+
+                Snackbar.make(
+                    binding.root,
+                    "Current location set as default. Loading events within ${radiusKm}km",
+                    Snackbar.LENGTH_SHORT
+                ).show()
             } ?: Snackbar.make(binding.root, "Could not get location", Snackbar.LENGTH_SHORT).show()
         }
     }
 
-    private fun fetchEventsFromEventbrite(lat: Double, lng: Double) {
+    private fun fetchEventsFromTicketmasterWithSettings(lat: Double, lng: Double, radiusKm: Int) {
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 val latlong = "$lat,$lng"
                 val response = RetrofitClient.ticketmasterApi.searchEvents(
                     apiKey = "D5nbt3rsOCggZWiebPysFS6oLaiseKDy",
                     latlong = latlong,
-                    radius = "25",
+                    radius = radiusKm.toString(),
                     keyword = currentKeyword,
                     classification = currentClassification,
                     size = "20",
@@ -314,12 +423,73 @@ class EventFragment : Fragment() {
                     val unifiedEvents = ticketmasterEvents.map { ticketmasterEvent ->
                         convertTicketmasterToUnified(ticketmasterEvent)
                     }
-                    
+
                     withContext(Dispatchers.Main) {
                         // Add real events to the list
                         allEvents.addAll(unifiedEvents)
                         eventAdapter.updateEvents(allEvents)
-                        
+
+                        if (unifiedEvents.isNotEmpty()) {
+                            Snackbar.make(
+                                binding.root,
+                                "Found ${unifiedEvents.size} events within ${radiusKm}km!",
+                                Snackbar.LENGTH_LONG
+                            ).show()
+                        } else {
+                            Snackbar.make(
+                                binding.root,
+                                "No events found within ${radiusKm}km.",
+                                Snackbar.LENGTH_LONG
+                            ).show()
+                        }
+                    }
+                } else {
+                    val errorText = try { response.errorBody()?.string() } catch (_: Exception) { null }
+                    withContext(Dispatchers.Main) {
+                        Snackbar.make(
+                            binding.root,
+                            "Ticketmaster error ${response.code()}${if (!errorText.isNullOrBlank()) ": $errorText" else ""}",
+                            Snackbar.LENGTH_LONG
+                        ).show()
+                    }
+                }
+            } catch (e: Exception) {
+                withContext(Dispatchers.Main) {
+                    Snackbar.make(
+                        binding.root,
+                        "Failed to fetch events: ${e.message}",
+                        Snackbar.LENGTH_LONG
+                    ).show()
+                }
+            }
+        }
+    }
+
+    private fun fetchEventsFromEventbrite(lat: Double, lng: Double) {
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val latlong = "$lat,$lng"
+                val radiusKm = SettingsManager.getEventRadius(requireContext())
+                val response = RetrofitClient.ticketmasterApi.searchEvents(
+                    apiKey = "D5nbt3rsOCggZWiebPysFS6oLaiseKDy",
+                    latlong = latlong,
+                    radius = radiusKm.toString(),
+                    keyword = currentKeyword,
+                    classification = currentClassification,
+                    size = "20",
+                    sort = "date,asc"
+                )
+                if (response.isSuccessful) {
+                    val ticketmasterEvents = response.body()?._embedded?.events ?: emptyList()
+                    val unifiedEvents = ticketmasterEvents.map { ticketmasterEvent ->
+                        convertTicketmasterToUnified(ticketmasterEvent)
+                    }
+
+                    withContext(Dispatchers.Main) {
+                        // Add real events to the list
+                        allEvents.addAll(unifiedEvents)
+                        eventAdapter.updateEvents(allEvents)
+
                         if (unifiedEvents.isNotEmpty()) {
                             Snackbar.make(
                                 binding.root,
@@ -360,18 +530,19 @@ class EventFragment : Fragment() {
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 // Try to get coordinates for the location first
-                val resolved = try { 
-                    LocationUtils.getLocationFromAddress(requireContext(), location) 
-                } catch (e: Exception) { 
-                    null 
+                val resolved = try {
+                    LocationUtils.getLocationFromAddress(requireContext(), location)
+                } catch (e: Exception) {
+                    null
                 }
-                
+
+                val radiusKm = SettingsManager.getEventRadius(requireContext())
                 val response = if (resolved != null) {
                     // Use coordinates if available
                     RetrofitClient.ticketmasterApi.searchEvents(
                         apiKey = "D5nbt3rsOCggZWiebPysFS6oLaiseKDy",
                         latlong = "${resolved.latitude},${resolved.longitude}",
-                        radius = "25",
+                        radius = radiusKm.toString(),
                         keyword = currentKeyword,
                         classification = currentClassification,
                         size = "20",
@@ -382,25 +553,25 @@ class EventFragment : Fragment() {
                     RetrofitClient.ticketmasterApi.searchEvents(
                         apiKey = "D5nbt3rsOCggZWiebPysFS6oLaiseKDy",
                         latlong = null,
-                        radius = "25",
+                        radius = radiusKm.toString(),
                         keyword = currentKeyword ?: location,
                         classification = currentClassification,
                         size = "20",
                         sort = "date,asc"
                     )
                 }
-                
+
                 if (response.isSuccessful) {
                     val ticketmasterEvents = response.body()?._embedded?.events ?: emptyList()
                     val unifiedEvents = ticketmasterEvents.map { ticketmasterEvent ->
                         convertTicketmasterToUnified(ticketmasterEvent)
                     }
-                    
+
                     withContext(Dispatchers.Main) {
                         // Add real events to the list
                         allEvents.addAll(unifiedEvents)
                         eventAdapter.updateEvents(allEvents)
-                        
+
                         if (unifiedEvents.isNotEmpty()) {
                             Snackbar.make(
                                 binding.root,
@@ -442,21 +613,21 @@ class EventFragment : Fragment() {
         val attraction = ticketmasterEvent._embedded?.attractions?.firstOrNull()
         val classification = ticketmasterEvent.classifications?.firstOrNull()
         val priceRange = ticketmasterEvent.priceRanges?.firstOrNull()
-        
+
         val location = venue?.let { v ->
             val city = v.city?.name ?: ""
             val state = v.state?.name ?: ""
             val venueName = v.name
             "$venueName${if (city.isNotEmpty()) ", $city" else ""}${if (state.isNotEmpty()) ", $state" else ""}"
         } ?: "Location TBD"
-        
+
         val startDate = ticketmasterEvent.dates?.start?.let { start ->
             start.dateTime ?: "${start.localDate ?: ""} ${start.localTime ?: ""}".trim()
         } ?: "Date TBD"
-        
+
         val description = buildString {
             attraction?.let { append("${it.name}") }
-            classification?.let { 
+            classification?.let {
                 if (isNotEmpty()) append(" • ")
                 append("${it.segment?.name ?: ""} ${it.genre?.name ?: ""}".trim())
             }
@@ -465,7 +636,7 @@ class EventFragment : Fragment() {
                 append("From ${it.min?.toInt() ?: "TBD"}${it.currency ?: "$"}")
             }
         }
-        
+
         return UnifiedEvent(
             id = ticketmasterEvent.id,
             title = ticketmasterEvent.name,

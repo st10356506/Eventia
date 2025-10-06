@@ -1,33 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
     <group android:checkableBehavior="single">
+
         <item
             android:id="@+id/navigation_dashboard"
             android:icon="@drawable/ic_home_24"
-            android:title="Dashboard" />
+            android:title="@string/drawer_dashboard" />
+
         <item
             android:id="@+id/navigation_events"
             android:icon="@drawable/ic_calendar_24"
-            android:title="Events" />
+            android:title="@string/drawer_events" />
+
         <item
             android:id="@+id/navigation_itinerary"
             android:icon="@drawable/ic_schedule_24"
-            android:title="Itinerary" />
+            android:title="@string/drawer_itinerary" />
+
         <item
             android:id="@+id/navigation_guests"
             android:icon="@drawable/ic_people_24"
-            android:title="Guests" />
+            android:title="@string/drawer_guests" />
+
         <item
             android:id="@+id/navigation_budget"
             android:icon="@drawable/ic_attach_money_24"
-            android:title="Budget" />
+            android:title="@string/drawer_budget" />
+
         <item
             android:id="@+id/navigation_map"
             android:icon="@drawable/ic_place_24"
-            android:title="Map" />
+            android:title="@string/drawer_map" />
+
         <item
             android:id="@+id/navigation_chat"
             android:icon="@drawable/ic_chat_24"
-            android:title="AI Assistant" />
+            android:title="@string/drawer_chat" />
+
+        <item
+            android:id="@+id/navigation_settings"
+            android:icon="@drawable/ic_settings_24"
+            android:title="@string/settings" />
+
     </group>
+
 </menu>

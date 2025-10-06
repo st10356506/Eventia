@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">EventPlanner</string>
+    <string name="settings">Einstellungen</string>
+    <string name="language">Sprache</string>
+    <string name="select_language">Sprache auswählen</string>
+    <string name="manage_notifications">Benachrichtigungseinstellungen</string>
+    <string name="privacy_policy">Datenschutzrichtlinie</string>
+    <string name="logout">Abmelden</string>
+    <string name="edit">Bearbeiten</string>
+    <string name="dark_mode">Dunkler Modus</string>
+    <string name="edit_profile">Profil bearbeiten</string>
+    <string name="display_name">Anzeigename</string>
+    <string name="profile_updated">Profil aktualisiert</string>
+    <string name="user">Benutzer</string>
+    <string name="save_changes">Änderungen speichern</string>
+    <string name="changes_saved">Änderungen gespeichert</string>
+    <string name="lang_english">Englisch</string>
+    <string name="lang_afrikaans">Afrikaans</string>
+    <string name="lang_zulu">Zulu</string>
+    <string name="lang_xhosa">Xhosa</string>
+    <string name="lang_spanish">Spanisch</string>
+    <string name="lang_german">Deutsch</string>
+    <string name="lang_french">Französisch</string>
+    <string name="lang_hindi">Hindi</string>
+    <string name="lang_mandarin">Mandarin</string>
+    <string name="app_logo">App-Logo</string>
+    <string name="welcome_back">Willkommen zurück bei Eventia</string>
+    <string name="email">E-Mail</string>
+    <string name="password">Passwort</string>
+    <string name="login">Anmelden</string>
+    <string name="sign_in_with_google">Mit Google anmelden</string>
+    <string name="back_to_register">Zur Registrierung zurück</string>
+    <string name="already_have_account_login">Bereits ein Konto? Anmelden</string>
+    <string name="create_account">Konto erstellen</string>
+    <string name="first_name">Vorname</string>
+    <string name="last_name">Nachname</string>
+    <string name="username">Benutzername</string>
+    <string name="age">Alter</string>
+    <string name="register">Registrieren</string>
+    <string name="register_with_google">Mit Google registrieren</string>
+    <string name="drawer_dashboard">Übersicht</string>
+    <string name="drawer_events">Veranstaltungen</string>
+    <string name="drawer_itinerary">Reiseplan</string>
+    <string name="drawer_guests">Gäste</string>
+    <string name="drawer_budget">Budget</string>
+    <string name="drawer_map">Karte</string>
+    <string name="drawer_chat">KI-Assistent</string>
+
+    <!-- Dashboard Fragment -->
+    <string name="welcome_back_user">Willkommen zurück, %1$s</string>
+    <string name="search_for_events">Veranstaltungen suchen</string>
+    <string name="trending_events_worldwide">Trending Veranstaltungen Weltweit</string>
+
+    <!-- Flights Fragment -->
+    <string name="modify">Ändern</string>
+    <string name="departure">Abflug: %1$s</string>
+    <string name="cheapest">Günstigste</string>
+    <string name="fastest">Schnellste</string>
+
+    <!-- Chat Fragment -->
+    <string name="ai_travel_buddy">KI Reise-Buddy</string>
+    <string name="ask_me_anything">Frag mich alles über deine Reise</string>
+    <string name="type_a_message">Nachricht eingeben</string>
+    <string name="send">Senden</string>
+    <string name="chat_coming_soon">Chat-Funktionalität kommt bald!</string>
+
+    <!-- Guest Fragment -->
+    <string name="confirmed">Bestätigt</string>
+    <string name="pending">Ausstehend</string>
+    <string name="declined">Abgelehnt</string>
+    <string name="guest_list">Gästeliste</string>
+    <string name="invite_guests">Gäste einladen</string>
+
+    <!-- Itinerary Fragment -->
+    <string name="itinerary_timeline">Reiseplan Zeitleiste</string>
+    <string name="add_item">Element hinzufügen</string>
+
+    <!-- Budget Fragment -->
+    <string name="budget_overview">Budget-Übersicht</string>
+    <string name="total_budget">Gesamtbudget</string>
+    <string name="total_spent">Gesamt ausgegeben</string>
+    <string name="remaining">Verbleibend</string>
+    <string name="recent_expenses">Aktuelle Ausgaben</string>
+    <string name="add_expense">Ausgabe hinzufügen</string>
+
+    <!-- Hotel Fragment -->
+    <string name="price">Preis</string>
+    <string name="rating">Bewertung</string>
+    <string name="distance">Entfernung</string>
+
+    <!-- Map Fragment -->
+    <string name="events_map">Veranstaltungs-Karte</string>
+    <string name="refresh">Aktualisieren</string>
+    <string name="location">Standort</string>
+    <string name="close">Schließen</string>
+    <string name="view_tickets">Tickets anzeigen</string>
+
+    <!-- New Settings Features -->
+    <string name="default_location">Standard-Standort</string>
+    <string name="set_default_location">Standard-Standort festlegen</string>
+    <string name="current_location">Aktueller Standort</string>
+    <string name="search_location">Standort suchen</string>
+    <string name="location_set">Standort festgelegt auf: %1$s</string>
+    <string name="event_radius">Event-Radius</string>
+    <string name="select_radius">Suchradius auswählen</string>
+    <string name="radius_1km">1 km</string>
+    <string name="radius_5km">5 km</string>
+    <string name="radius_10km">10 km</string>
+    <string name="radius_25km">25 km</string>
+    <string name="radius_50km">50 km</string>
+    <string name="radius_100km">100 km</string>
+    <string name="change_username">Benutzername ändern</string>
+    <string name="new_username">Neuer Benutzername</string>
+    <string name="enter_new_username">Neuen Benutzername eingeben</string>
+    <string name="username_updated">Benutzername erfolgreich aktualisiert</string>
+    <string name="username_error">Fehler beim Aktualisieren des Benutzernamens</string>
+    <string name="username_required">Benutzername ist erforderlich</string>
+    <string name="username_too_short">Benutzername muss mindestens 3 Zeichen haben</string>
+    <string name="username_too_long">Benutzername muss weniger als 20 Zeichen haben</string>
+    <string name="save">Speichern</string>
+    <string name="cancel">Abbrechen</string>
+</resources>

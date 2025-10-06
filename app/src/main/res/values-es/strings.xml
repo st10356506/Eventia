@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">EventPlanner</string>
+    <string name="settings">Ajustes</string>
+    <string name="language">Idioma</string>
+    <string name="select_language">Seleccionar idioma</string>
+    <string name="manage_notifications">Configuración de notificaciones</string>
+    <string name="privacy_policy">Política de privacidad</string>
+    <string name="logout">Cerrar sesión</string>
+    <string name="edit">Editar</string>
+    <string name="dark_mode">Modo oscuro</string>
+    <string name="edit_profile">Editar perfil</string>
+    <string name="display_name">Nombre para mostrar</string>
+    <string name="profile_updated">Perfil actualizado</string>
+    <string name="user">Usuario</string>
+    <string name="save_changes">Guardar cambios</string>
+    <string name="changes_saved">Cambios guardados</string>
+    <string name="lang_english">Inglés</string>
+    <string name="lang_afrikaans">Afrikáans</string>
+    <string name="lang_zulu">Zulú</string>
+    <string name="lang_xhosa">Xhosa</string>
+    <string name="lang_spanish">Español</string>
+    <string name="lang_german">Alemán</string>
+    <string name="lang_french">Francés</string>
+    <string name="lang_hindi">Hindi</string>
+    <string name="lang_mandarin">Mandarín</string>
+    <string name="app_logo">Logotipo de la app</string>
+    <string name="welcome_back">Bienvenido de nuevo a Eventia</string>
+    <string name="email">Correo electrónico</string>
+    <string name="password">Contraseña</string>
+    <string name="login">Iniciar sesión</string>
+    <string name="sign_in_with_google">Acceder con Google</string>
+    <string name="back_to_register">Volver a registrarse</string>
+    <string name="already_have_account_login">¿Ya tienes cuenta? Inicia sesión</string>
+    <string name="create_account">Crear cuenta</string>
+    <string name="first_name">Nombre</string>
+    <string name="last_name">Apellido</string>
+    <string name="username">Nombre de usuario</string>
+    <string name="age">Edad</string>
+    <string name="register">Registrarse</string>
+    <string name="register_with_google">Registrarse con Google</string>
+    <string name="drawer_dashboard">Inicio</string>
+    <string name="drawer_events">Eventos</string>
+    <string name="drawer_itinerary">Itinerario</string>
+    <string name="drawer_guests">Invitados</string>
+    <string name="drawer_budget">Presupuesto</string>
+    <string name="drawer_map">Mapa</string>
+    <string name="drawer_chat">Asistente IA</string>
+
+    <!-- Dashboard Fragment -->
+    <string name="welcome_back_user">Bienvenido de nuevo, %1$s</string>
+    <string name="search_for_events">Buscar eventos</string>
+    <string name="trending_events_worldwide">Eventos Trending Mundialmente</string>
+
+    <!-- Flights Fragment -->
+    <string name="modify">Modificar</string>
+    <string name="departure">Salida: %1$s</string>
+    <string name="cheapest">Más barato</string>
+    <string name="fastest">Más rápido</string>
+
+    <!-- Chat Fragment -->
+    <string name="ai_travel_buddy">Compañero de Viaje IA</string>
+    <string name="ask_me_anything">Pregúntame cualquier cosa sobre tu viaje</string>
+    <string name="type_a_message">Escribe un mensaje</string>
+    <string name="send">Enviar</string>
+    <string name="chat_coming_soon">¡Funcionalidad de chat próximamente!</string>
+
+    <!-- Guest Fragment -->
+    <string name="confirmed">Confirmado</string>
+    <string name="pending">Pendiente</string>
+    <string name="declined">Rechazado</string>
+    <string name="guest_list">Lista de Invitados</string>
+    <string name="invite_guests">Invitar Invitados</string>
+
+    <!-- Itinerary Fragment -->
+    <string name="itinerary_timeline">Cronología del Itinerario</string>
+    <string name="add_item">Agregar Elemento</string>
+
+    <!-- Budget Fragment -->
+    <string name="budget_overview">Resumen del Presupuesto</string>
+    <string name="total_budget">Presupuesto Total</string>
+    <string name="total_spent">Total Gastado</string>
+    <string name="remaining">Restante</string>
+    <string name="recent_expenses">Gastos Recientes</string>
+    <string name="add_expense">Agregar Gasto</string>
+
+    <!-- Hotel Fragment -->
+    <string name="price">Precio</string>
+    <string name="rating">Calificación</string>
+    <string name="distance">Distancia</string>
+
+    <!-- Map Fragment -->
+    <string name="events_map">Mapa de Eventos</string>
+    <string name="refresh">Actualizar</string>
+    <string name="location">Ubicación</string>
+    <string name="close">Cerrar</string>
+    <string name="view_tickets">Ver Entradas</string>
+
+    <!-- New Settings Features -->
+    <string name="default_location">Ubicación Predeterminada</string>
+    <string name="set_default_location">Establecer Ubicación Predeterminada</string>
+    <string name="current_location">Ubicación Actual</string>
+    <string name="search_location">Buscar Ubicación</string>
+    <string name="location_set">Ubicación establecida en: %1$s</string>
+    <string name="event_radius">Radio de Eventos</string>
+    <string name="select_radius">Seleccionar radio de búsqueda</string>
+    <string name="radius_1km">1 km</string>
+    <string name="radius_5km">5 km</string>
+    <string name="radius_10km">10 km</string>
+    <string name="radius_25km">25 km</string>
+    <string name="radius_50km">50 km</string>
+    <string name="radius_100km">100 km</string>
+    <string name="change_username">Cambiar Nombre de Usuario</string>
+    <string name="new_username">Nuevo Nombre de Usuario</string>
+    <string name="enter_new_username">Ingrese nuevo nombre de usuario</string>
+    <string name="username_updated">Nombre de usuario actualizado exitosamente</string>
+    <string name="username_error">Error al actualizar nombre de usuario</string>
+    <string name="username_required">El nombre de usuario es requerido</string>
+    <string name="username_too_short">El nombre de usuario debe tener al menos 3 caracteres</string>
+    <string name="username_too_long">El nombre de usuario debe tener menos de 20 caracteres</string>
+    <string name="save">Guardar</string>
+    <string name="cancel">Cancelar</string>
+</resources>
+

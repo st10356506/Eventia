@@ -37,16 +37,20 @@
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
+                <!-- Horizontal layout for side-by-side numbers with aligned baselines -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:weightSum="2">
 
+                    <!-- Total Budget -->
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:baselineAligned="true">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -55,80 +59,58 @@
                             android:textColor="@color/on_primary"
                             android:textSize="14sp" />
 
-                        <TextView
-                            android:id="@+id/tv_total_budget"
-                            android:layout_width="wrap_content"
+                        <EditText
+                            android:id="@+id/etTotalBudget"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
+                            android:backgroundTint="@android:color/transparent"
+                            android:inputType="numberDecimal"
                             android:textColor="@color/on_primary"
                             android:textSize="24sp"
                             android:textStyle="bold"
-                            tools:text="R12,900" />
+                            tools:text="12900" />
 
                     </LinearLayout>
 
+                    <!-- Total Expenses -->
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:baselineAligned="true">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Total Spent"
+                            android:text="Total Expenses"
                             android:textColor="@color/on_primary"
                             android:textSize="14sp" />
 
                         <TextView
-                            android:id="@+id/tv_total_spent"
+                            android:id="@+id/tvTotalExpenses"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
                             android:textColor="@color/on_primary"
                             android:textSize="24sp"
                             android:textStyle="bold"
-                            tools:text="R8,450" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Remaining"
-                            android:textColor="@color/on_primary"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/tv_remaining_budget"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:textColor="@color/on_primary"
-                            android:textSize="24sp"
-                            android:textStyle="bold"
-                            tools:text="R4,450" />
+                            tools:text="8450" />
 
                     </LinearLayout>
 
                 </LinearLayout>
 
-                <com.google.android.material.progressindicator.LinearProgressIndicator
-                    android:id="@+id/progress_budget"
+                <!-- Gradient Progress -->
+                <ProgressBar
+                    android:id="@+id/progressBudget"
+                    style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="10dp"
                     android:layout_marginTop="16dp"
+                    android:max="100"
                     android:progress="65"
-                    app:trackCornerRadius="4dp"
-                    app:indicatorColor="@color/on_primary"
-                    app:trackColor="@color/on_primary"
-                    android:alpha="0.3" />
+                    android:indeterminate="false"
+                    android:progressDrawable="@drawable/progress_gradient"/>
 
             </LinearLayout>
 
@@ -163,7 +145,7 @@
                         android:textStyle="bold" />
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btn_add_expense"
+                        android:id="@+id/btnAddBudget"
                         style="@style/Widget.EventPlanner.Button.Primary"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -180,7 +162,7 @@
                     android:background="@color/outline_variant" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_expenses"
+                    android:id="@+id/rvBudgets"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="16dp"

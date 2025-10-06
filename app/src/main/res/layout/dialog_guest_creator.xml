@@ -33,7 +33,6 @@
             android:padding="8dp"
             android:src="@drawable/ic_close_24"
             app:tint="@color/on_primary" />
-
     </LinearLayout>
 
     <View
@@ -85,7 +84,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textPersonName" />
-
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -103,28 +101,26 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textPersonName" />
-
                 </com.google.android.material.textfield.TextInputLayout>
-
             </LinearLayout>
 
+            <!-- Username Field (updated) -->
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_email"
+                android:id="@+id/til_username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:hint="Email Address"
+                android:hint="Username"
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                app:startIconDrawable="@drawable/ic_chat_24"
+                app:startIconDrawable="@drawable/ic_person_24"
                 app:startIconTint="@color/primary"
                 app:boxStrokeColor="@color/primary">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_email"
+                    android:id="@+id/et_username"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textEmailAddress" />
-
+                    android:inputType="textPersonName" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -143,7 +139,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="phone" />
-
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Guest Type Section -->
@@ -173,7 +168,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="none" />
-
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -190,7 +184,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text" />
-
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -208,11 +201,8 @@
                     android:layout_height="wrap_content"
                     android:inputType="textMultiLine"
                     android:lines="2" />
-
             </com.google.android.material.textfield.TextInputLayout>
-
         </LinearLayout>
-
     </androidx.core.widget.NestedScrollView>
 
     <View
@@ -243,7 +233,5 @@
             android:layout_height="wrap_content"
             android:paddingHorizontal="24dp"
             android:text="Send Invitation" />
-
     </LinearLayout>
-
 </LinearLayout>

@@ -21,6 +21,7 @@
             android:layout_marginBottom="24dp"
             android:orientation="horizontal">
 
+            <!-- Confirmed Card -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -51,11 +52,10 @@
                         android:textSize="24sp"
                         android:textStyle="bold"
                         tools:text="12" />
-
                 </LinearLayout>
-
             </com.google.android.material.card.MaterialCardView>
 
+            <!-- Pending Card -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -86,11 +86,10 @@
                         android:textSize="24sp"
                         android:textStyle="bold"
                         tools:text="3" />
-
                 </LinearLayout>
-
             </com.google.android.material.card.MaterialCardView>
 
+            <!-- Declined Card -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -121,11 +120,8 @@
                         android:textSize="24sp"
                         android:textStyle="bold"
                         tools:text="1" />
-
                 </LinearLayout>
-
             </com.google.android.material.card.MaterialCardView>
-
         </LinearLayout>
 
         <!-- Guest List -->
@@ -145,7 +141,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:padding="20dp">
+                    android:padding="24dp"
+                    android:gravity="center_vertical">
 
                     <TextView
                         android:layout_width="0dp"
@@ -153,37 +150,58 @@
                         android:layout_weight="1"
                         android:text="Guest List"
                         android:textColor="@color/on_surface"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.01" />
 
+                    <!-- Invite Guests Button -->
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btn_invite_guest"
                         style="@style/Widget.EventPlanner.Button.Primary"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Invite Guests"
+                        android:text="Invite"
                         android:textSize="14sp"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="10dp"
+                        app:cornerRadius="12dp"
                         app:icon="@drawable/ic_add_24"
-                        app:iconSize="16dp" />
+                        app:iconSize="18dp"
+                        app:iconPadding="6dp" />
+
+                    <!-- Invites Button -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_invites"
+                        style="@style/Widget.EventPlanner.Button.Secondary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="Invites"
+                        android:textSize="14sp"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="10dp"
+                        app:cornerRadius="12dp"
+                        app:icon="@drawable/ic_mail_24"
+                        app:iconSize="18dp"
+                        app:iconPadding="6dp" />
 
                 </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/outline_variant" />
+                    android:layout_marginHorizontal="16dp"
+                    android:background="@color/outline_variant"
+                    android:alpha="0.5" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_guests"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="16dp"
+                    android:padding="20dp"
+                    android:clipToPadding="false"
                     tools:listitem="@layout/item_guest" />
-
             </LinearLayout>
-
         </com.google.android.material.card.MaterialCardView>
-
     </LinearLayout>
-
 </androidx.core.widget.NestedScrollView>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">EventPlanner</string>
+    <string name="settings">Instellings</string>
+    <string name="language">Taal</string>
+    <string name="select_language">Kies taal</string>
+    <string name="manage_notifications">Kennisgewinginstellings</string>
+    <string name="privacy_policy">Privaatheidsbeleid</string>
+    <string name="logout">Teken uit</string>
+    <string name="edit">Wysig</string>
+    <string name="dark_mode">Donker modus</string>
+    <string name="edit_profile">Wysig profiel</string>
+    <string name="display_name">Vertoonnaam</string>
+    <string name="profile_updated">Profiel opgedateer</string>
+    <string name="user">Gebruiker</string>
+    <string name="save_changes">Stoor veranderings</string>
+    <string name="changes_saved">Veranderings gestoor</string>
+    <string name="lang_english">Engels</string>
+    <string name="lang_afrikaans">Afrikaans</string>
+    <string name="lang_zulu">Zoeloe</string>
+    <string name="lang_xhosa">Xhosa</string>
+    <string name="lang_spanish">Spaans</string>
+    <string name="lang_german">Duits</string>
+    <string name="lang_french">Frans</string>
+    <string name="lang_hindi">Hindi</string>
+    <string name="lang_mandarin">Mandaryns</string>
+    <string name="app_logo">App-Logo</string>
+    <string name="welcome_back">Welkom terug by Eventia</string>
+    <string name="email">E-pos</string>
+    <string name="password">Wagwoord</string>
+    <string name="login">Meld aan</string>
+    <string name="sign_in_with_google">Meld aan met Google</string>
+    <string name="back_to_register">Terug na registreer</string>
+    <string name="already_have_account_login">Het jy reeds \'n rekening? Meld aan</string>
+    <string name="create_account">Skep Rekening</string>
+    <string name="first_name">Naam</string>
+    <string name="last_name">Van</string>
+    <string name="username">Gebruikersnaam</string>
+    <string name="age">Ouderdom</string>
+    <string name="register">Registreer</string>
+    <string name="register_with_google">Registreer met Google</string>
+    <string name="drawer_dashboard">Paneelbord</string>
+    <string name="drawer_events">Gebeure</string>
+    <string name="drawer_itinerary">Reisplan</string>
+    <string name="drawer_guests">Gaste</string>
+    <string name="drawer_budget">Begroting</string>
+    <string name="drawer_map">Kaart</string>
+    <string name="drawer_chat">KI-assistent</string>
+
+    <!-- Dashboard Fragment -->
+    <string name="welcome_back_user">Welkom terug, %1$s</string>
+    <string name="search_for_events">Soek vir gebeure</string>
+    <string name="trending_events_worldwide">Trending Gebeure Wêreldwyd</string>
+
+    <!-- Flights Fragment -->
+    <string name="modify">Wysig</string>
+    <string name="departure">Vertrek: %1$s</string>
+    <string name="cheapest">Goedkoopste</string>
+    <string name="fastest">Vinnigste</string>
+
+    <!-- Chat Fragment -->
+    <string name="ai_travel_buddy">KI Reis-maat</string>
+    <string name="ask_me_anything">Vra my enigiets oor jou reis</string>
+    <string name="type_a_message">Tik \'n boodskap</string>
+    <string name="send">Stuur</string>
+    <string name="chat_coming_soon">Kletsfunksionaliteit kom binnekort!</string>
+
+    <!-- Guest Fragment -->
+    <string name="confirmed">Bevestig</string>
+    <string name="pending">Hangende</string>
+    <string name="declined">Afgewys</string>
+    <string name="guest_list">Gaslys</string>
+    <string name="invite_guests">Nooi gaste</string>
+
+    <!-- Itinerary Fragment -->
+    <string name="itinerary_timeline">Reisplan Tydlyn</string>
+    <string name="add_item">Voeg item by</string>
+
+    <!-- Budget Fragment -->
+    <string name="budget_overview">Begrotingsoorsig</string>
+    <string name="total_budget">Totale Begroting</string>
+    <string name="total_spent">Totaal Spandeer</string>
+    <string name="remaining">Oorblywende</string>
+    <string name="recent_expenses">Onlangse Uitgawes</string>
+    <string name="add_expense">Voeg uitgawe by</string>
+
+    <!-- Hotel Fragment -->
+    <string name="price">Prys</string>
+    <string name="rating">Gradering</string>
+    <string name="distance">Afstand</string>
+
+    <!-- Map Fragment -->
+    <string name="events_map">Gebeure Kaart</string>
+    <string name="refresh">Verfris</string>
+    <string name="location">Ligging</string>
+    <string name="close">Sluit</string>
+    <string name="view_tickets">Bekyk kaartjies</string>
+
+    <!-- New Settings Features -->
+    <string name="default_location">Verstek Ligging</string>
+    <string name="set_default_location">Stel Verstek Ligging</string>
+    <string name="current_location">Huidige Ligging</string>
+    <string name="search_location">Soek Ligging</string>
+    <string name="location_set">Ligging gestel na: %1$s</string>
+    <string name="event_radius">Gebeurtenis Radius</string>
+    <string name="select_radius">Kies soek radius</string>
+    <string name="radius_1km">1 km</string>
+    <string name="radius_5km">5 km</string>
+    <string name="radius_10km">10 km</string>
+    <string name="radius_25km">25 km</string>
+    <string name="radius_50km">50 km</string>
+    <string name="radius_100km">100 km</string>
+    <string name="change_username">Verander Gebruikersnaam</string>
+    <string name="new_username">Nuwe Gebruikersnaam</string>
+    <string name="enter_new_username">Voer nuwe gebruikersnaam in</string>
+    <string name="username_updated">Gebruikersnaam suksesvol opgedateer</string>
+    <string name="username_error">Kon nie gebruikersnaam opdateer nie</string>
+    <string name="username_required">Gebruikersnaam is vereis</string>
+    <string name="username_too_short">Gebruikersnaam moet minstens 3 karakters wees</string>
+    <string name="username_too_long">Gebruikersnaam moet minder as 20 karakters wees</string>
+    <string name="save">Stoor</string>
+    <string name="cancel">Kanselleer</string>
+</resources>
+
